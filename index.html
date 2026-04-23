@@ -1,11 +1,1470 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Distribution Book</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Distribution Book 2026 — Gruppo Assicurativo Italia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+/* ═══════════════════════════════════════════
+   GRUPPO ASSICURATIVO ITALIA — Distribution Book 2026
+   Design: Apple-style, blu Gruppo Assicurativo Italia #003781
+═══════════════════════════════════════════ */
+:root {
+  --white:   #ffffff;
+  --f9:      #f5f5f7;
+  --f2:      #ebebeb;
+  --border:  #d2d2d7;
+  --txt-1:   #1d1d1f;
+  --txt-2:   #515154;
+  --txt-3:   #86868b;
+  --blue:    #003781;
+  --blue-m:  #0057b8;
+  --blue-lt: #0071e3;
+  --blue-bg: #e8eef8;
+  --nav-h:   52px;
+  --r:       18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Figtree',-apple-system,sans-serif;background:var(--white);color:var(--txt-1);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* ── UTILS ── */
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+.eyebrow{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--blue);background:var(--blue-bg);padding:4px 13px;border-radius:100px;margin-bottom:18px}
+.h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.04em;line-height:1.06;color:var(--txt-1);margin-bottom:14px}
+.body-txt{font-size:17px;color:var(--txt-2);line-height:1.65}
+section{padding:96px 0}
+
+/* ── REVEAL ── */
+.rev{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.25,1,.5,1),transform .7s cubic-bezier(.25,1,.5,1)}
+.rev-up{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.25,1,.5,1),transform .8s cubic-bezier(.25,1,.5,1)}
+.rev.in,.rev-up.in{opacity:1;transform:translateY(0)}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;height:var(--nav-h);background:rgba(255,255,255,.88);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(0,0,0,.07);transition:.3s}
+.nav.scrolled{background:rgba(255,255,255,.97)}
+.nav-in{max-width:1100px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;gap:0}
+.nav-logo{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:800;color:var(--blue);letter-spacing:-.03em;flex-shrink:0}
+.nav-logo svg{flex-shrink:0}
+.nav-links{display:flex;gap:2px;flex:1;justify-content:center}
+.nav-links a{font-size:13px;font-weight:500;color:var(--txt-2);padding:6px 12px;border-radius:8px;transition:.2s}
+.nav-links a:hover{color:var(--txt-1);background:var(--f9)}
+.nav-pill{font-size:13px;font-weight:600;color:var(--white);background:var(--blue);padding:7px 16px;border-radius:100px;transition:.2s;flex-shrink:0}
+.nav-pill:hover{background:var(--blue-m)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;margin-left:10px}
+.burger span{display:block;width:22px;height:2px;background:var(--txt-1);border-radius:2px}
+.mob-menu{display:none;flex-direction:column;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px 24px 16px}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:16px;font-weight:500;color:var(--txt-1);padding:10px 0;border-bottom:1px solid var(--f2)}
+.mob-menu a:last-child{border:none}
+
+/* ── HERO ── */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:calc(var(--nav-h) + 64px) 24px 80px;background:var(--white)}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--txt-3);margin-bottom:26px}
+.hero-badge-dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:bdot 2.5s ease-in-out infinite}
+@keyframes bdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hero-h1{font-size:clamp(58px,11vw,122px);font-weight:900;letter-spacing:-.06em;line-height:.92;color:var(--txt-1);margin-bottom:30px}
+.hero-h1 em{font-style:normal;color:var(--blue)}
+.hero-sub{font-size:clamp(16px,2.2vw,20px);font-weight:400;color:var(--txt-2);line-height:1.6;max-width:540px;margin-bottom:44px}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:72px}
+.btn-s{font-family:'Figtree',sans-serif;font-size:15px;font-weight:600;padding:13px 26px;border-radius:100px;background:var(--blue);color:#fff;transition:.2s;box-shadow:0 4px 20px rgba(0,55,129,.28)}
+.btn-s:hover{background:var(--blue-m);transform:translateY(-1px)}
+.btn-g{font-family:'Figtree',sans-serif;font-size:15px;font-weight:600;padding:13px 26px;border-radius:100px;background:var(--f9);color:var(--txt-1);border:1px solid var(--border);transition:.2s}
+.btn-g:hover{background:var(--f2);transform:translateY(-1px)}
+.hero-nav-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:900px;width:100%}
+.hnc{background:var(--f9);border:1px solid var(--border);border-radius:var(--r);padding:22px 20px;cursor:pointer;transition:.25s;text-align:left}
+.hnc:hover{border-color:var(--blue);background:var(--blue-bg);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,55,129,.1)}
+.hnc-num{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.hnc-label{font-size:15px;font-weight:700;color:var(--txt-1);letter-spacing:-.02em;line-height:1.3}
+.hnc-arrow{font-size:18px;color:var(--border);margin-top:12px;transition:.2s}
+.hnc:hover .hnc-arrow{color:var(--blue);transform:translateX(4px)}
+
+/* ── SECTION INTRO ── */
+.sec-intro{display:flex;gap:48px;align-items:flex-start;margin-bottom:56px}
+.sec-intro-left{flex:1}
+.sec-intro-right{flex:1;padding-top:8px}
+
+/* ═══════════════════════════════
+   SEZIONE 1 — STRATEGIA
+═══════════════════════════════ */
+.strategia{background:var(--white)}
+.kpi-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;border-radius:var(--r);overflow:hidden;margin-bottom:56px}
+.kpi-b{background:var(--f9);padding:40px 32px}
+.kpi-b:first-child{background:var(--blue);border-radius:var(--r) 0 0 var(--r)}
+.kpi-b:last-child{border-radius:0 var(--r) var(--r) 0}
+.kpi-b:first-child .kpi-num,.kpi-b:first-child .kpi-lbl,.kpi-b:first-child .kpi-desc{color:#fff}
+.kpi-b:first-child .kpi-lbl{color:rgba(255,255,255,.65)}
+.kpi-b:first-child .kpi-desc{color:rgba(255,255,255,.5)}
+.kpi-tag{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);background:rgba(255,255,255,.12);display:inline-block;padding:3px 10px;border-radius:100px;margin-bottom:16px}
+.kpi-tag-dark{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);background:var(--blue-bg);display:inline-block;padding:3px 10px;border-radius:100px;margin-bottom:16px}
+.kpi-num{font-size:52px;font-weight:900;letter-spacing:-.06em;line-height:1;color:var(--txt-1);margin-bottom:6px}
+.kpi-lbl{font-size:15px;font-weight:700;color:var(--txt-1);margin-bottom:6px}
+.kpi-desc{font-size:13px;color:var(--txt-3);line-height:1.5}
+
+.linee-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:56px}
+.linea-card{background:var(--f9);border:1.5px solid var(--border);border-radius:var(--r);padding:28px 26px;transition:.25s}
+.linea-card:hover{border-color:var(--blue);box-shadow:0 6px 24px rgba(0,55,129,.08);transform:translateY(-2px)}
+.linea-n{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.linea-title{font-size:17px;font-weight:700;color:var(--txt-1);margin-bottom:8px;letter-spacing:-.02em}
+.linea-body{font-size:13.5px;color:var(--txt-2);line-height:1.6}
+
+.obiettivi-table{border-radius:var(--r);overflow:hidden;border:1.5px solid var(--border)}
+.ob-head{display:grid;grid-template-columns:1fr 160px 100px 120px;gap:0;background:var(--blue);padding:13px 24px}
+.ob-head span{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.ob-row{display:grid;grid-template-columns:1fr 160px 100px 120px;gap:0;padding:16px 24px;border-bottom:1px solid var(--f2);align-items:center;transition:.15s}
+.ob-row:last-child{border:none}
+.ob-row:hover{background:var(--f9)}
+.ob-canale{font-size:15px;font-weight:600;color:var(--txt-1)}
+.ob-sub{font-size:12px;color:var(--txt-3);margin-top:2px}
+.ob-val{font-size:16px;font-weight:800;letter-spacing:-.03em;color:var(--txt-1)}
+.ob-badge{display:inline-block;font-size:12px;font-weight:700;color:#1a7f4b;background:#d1fae5;padding:3px 10px;border-radius:100px}
+.ob-badge--hot{color:var(--blue);background:var(--blue-bg)}
+.ob-rete{font-size:13px;color:var(--txt-2)}
+
+/* ═══════════════════════════════
+   SEZIONE 2 — GARE E INCENTIVI
+═══════════════════════════════ */
+.gare-sec{background:var(--f9)}
+.gare-layout{display:grid;grid-template-columns:1fr 280px;gap:16px;margin-bottom:48px}
+.gara-hero{background:var(--blue);border-radius:var(--r);padding:40px 36px;color:#fff}
+.gh-badge{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);background:rgba(255,255,255,.1);display:inline-block;padding:4px 12px;border-radius:100px;margin-bottom:20px}
+.gh-title{font-size:34px;font-weight:900;letter-spacing:-.05em;margin-bottom:12px}
+.gh-body{font-size:15px;line-height:1.65;color:rgba(255,255,255,.65);margin-bottom:28px}
+.gh-prizes{display:flex;flex-direction:column;gap:10px}
+.gp{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.08);border-radius:11px;padding:13px 18px}
+.gp-pos{font-size:14px;font-weight:600;color:rgba(255,255,255,.65)}
+.gp-val{font-size:14px;font-weight:700;color:#fff}
+
+.pts-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:28px 24px}
+.pts-title{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-3);margin-bottom:18px}
+.pt-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--f2);gap:12px}
+.pt-row:last-child{border:none}
+.pt-row span{font-size:13px;color:var(--txt-2)}
+.pt-row strong{font-size:14px;font-weight:800;color:var(--txt-1);white-space:nowrap}
+.pt-row--hot strong{color:var(--blue)}
+
+.incentivi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;border-radius:var(--r);overflow:hidden;margin-bottom:48px}
+.inc-card{background:var(--white);padding:30px 24px;transition:.2s}
+.inc-card:hover{background:var(--blue-bg)}
+.inc-letter{font-size:28px;font-weight:900;letter-spacing:-.06em;color:var(--blue);margin-bottom:4px}
+.inc-cond{font-size:12px;color:var(--txt-3);margin-bottom:16px}
+.inc-reward{font-size:26px;font-weight:900;letter-spacing:-.04em;color:var(--txt-1);margin-bottom:4px}
+.inc-extra{font-size:12px;font-weight:600;color:var(--blue)}
+.inc-card--dim{opacity:.45}
+.inc-card--dim .inc-reward{color:var(--txt-3)}
+
+.extra-comm{border-radius:var(--r);overflow:hidden;border:1.5px solid var(--border)}
+.ec-head{display:grid;grid-template-columns:1fr 100px 1fr;gap:0;background:var(--txt-1);padding:12px 24px}
+.ec-head span{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.ec-row{display:grid;grid-template-columns:1fr 100px 1fr;gap:0;padding:14px 24px;border-bottom:1px solid var(--f2);align-items:center;transition:.15s}
+.ec-row:last-child{border:none}
+.ec-row:hover{background:var(--f9)}
+.ec-prod{font-size:14.5px;font-weight:500;color:var(--txt-1)}
+.ec-rate{font-size:18px;font-weight:900;letter-spacing:-.04em;color:var(--txt-1);text-align:center}
+.ec-rate--hot{color:var(--blue)}
+.ec-note{font-size:12.5px;color:var(--txt-3);text-align:right}
+
+/* ═══════════════════════════════
+   SEZIONE 3 — AGENDA
+═══════════════════════════════ */
+.agenda-sec{background:var(--white)}
+.agenda-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+
+.timeline{display:flex;flex-direction:column;gap:0;border-radius:var(--r);overflow:hidden;border:1.5px solid var(--border)}
+.tl-head{display:grid;grid-template-columns:90px 1fr 200px;gap:0;background:var(--blue);padding:13px 28px}
+.tl-head span{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.tl-row{display:grid;grid-template-columns:90px 1fr 200px;gap:0;padding:18px 28px;border-bottom:1px solid var(--f2);align-items:start;transition:.15s;cursor:pointer}
+.tl-row:last-child{border:none}
+.tl-row:hover{background:var(--blue-bg)}
+.tl-row--hl{background:#eff6ff}
+.tl-row--hl:hover{background:#dbeafe}
+.tl-month{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--txt-3);padding-top:2px}
+.tl-row--hl .tl-month{color:var(--blue)}
+.tl-main{display:flex;flex-direction:column;gap:4px}
+.tl-event{font-size:15px;font-weight:600;color:var(--txt-1);letter-spacing:-.01em}
+.tl-desc{font-size:13px;color:var(--txt-2);line-height:1.5}
+.tl-meta{display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+.tl-city{font-size:12.5px;font-weight:600;color:var(--txt-1)}
+.tl-type{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:100px}
+.tl-type--conv{background:var(--blue-bg);color:var(--blue)}
+.tl-type--road{background:#d1fae5;color:#065f46}
+.tl-type--form{background:#fef3c7;color:#92400e}
+.tl-type--gala{background:#fce7f3;color:#9d174d}
+.tl-type--web{background:#f3e8ff;color:#6b21a8}
+.tl-type--rev{background:var(--f2);color:var(--txt-2)}
+
+.eventi-highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+.ev-card{border-radius:var(--r);overflow:hidden;border:1.5px solid var(--border);transition:.3s;cursor:pointer}
+.ev-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,55,129,.1);border-color:var(--blue)}
+.ev-card-top{padding:24px;background:var(--blue);color:#fff}
+.ev-card-top--2{background:var(--blue-m)}
+.ev-card-top--3{background:var(--txt-1)}
+.ev-date{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px}
+.ev-name{font-size:20px;font-weight:800;letter-spacing:-.03em;line-height:1.2}
+.ev-card-body{padding:20px 24px;background:var(--white)}
+.ev-loc{font-size:13px;font-weight:600;color:var(--txt-1);margin-bottom:6px}
+.ev-body-desc{font-size:13px;color:var(--txt-2);line-height:1.55}
+
+/* ═══════════════════════════════
+   SEZIONE 4 — STRUMENTI
+═══════════════════════════════ */
+.strumenti-sec{background:var(--f9)}
+.strumenti-bento{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;border-radius:var(--r);overflow:hidden;margin-bottom:3px}
+.strumenti-bento-2{display:grid;grid-template-columns:1fr 1fr;gap:3px;border-radius:0 0 var(--r) var(--r);overflow:hidden}
+.sb{padding:36px 32px;transition:.25s;cursor:pointer}
+.sb:hover{filter:brightness(.97)}
+.sb--dark{background:var(--txt-1)}
+.sb--blue{background:var(--blue)}
+.sb--mid{background:var(--blue-m)}
+.sb--light{background:var(--white);border:none}
+.sb--f9{background:var(--f9)}
+.sb-tag{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.sb--dark .sb-tag,.sb--blue .sb-tag,.sb--mid .sb-tag{color:rgba(255,255,255,.45)}
+.sb--light .sb-tag,.sb--f9 .sb-tag{color:var(--txt-3)}
+.sb-title{font-size:22px;font-weight:800;letter-spacing:-.04em;line-height:1.15;margin-bottom:12px}
+.sb--dark .sb-title,.sb--blue .sb-title,.sb--mid .sb-title{color:#fff}
+.sb--light .sb-title,.sb--f9 .sb-title{color:var(--txt-1)}
+.sb-body{font-size:13.5px;line-height:1.6;margin-bottom:18px}
+.sb--dark .sb-body,.sb--blue .sb-body,.sb--mid .sb-body{color:rgba(255,255,255,.6)}
+.sb--light .sb-body,.sb--f9 .sb-body{color:var(--txt-2)}
+.sb-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.sb-list li{font-size:13px;font-weight:500;padding-left:14px;position:relative}
+.sb-list li::before{content:'—';position:absolute;left:0;font-size:11px}
+.sb--dark .sb-list li,.sb--blue .sb-list li,.sb--mid .sb-list li{color:rgba(255,255,255,.55)}
+.sb--dark .sb-list li::before,.sb--blue .sb-list li::before,.sb--mid .sb-list li::before{color:rgba(255,255,255,.3)}
+.sb--light .sb-list li,.sb--f9 .sb-list li{color:var(--txt-2)}
+.sb-more{font-size:13px;font-weight:600;margin-top:20px;transition:.2s}
+.sb--dark .sb-more,.sb--blue .sb-more,.sb--mid .sb-more{color:rgba(255,255,255,.5)}
+.sb:hover .sb-more{opacity:1;color:inherit}
+.sb--light .sb-more,.sb--f9 .sb-more{color:var(--blue)}
+
+/* ── CHATBOT ── */
+.chat-sec{background:var(--blue);padding:96px 0}
+.chat-layout{max-width:1100px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 460px;gap:56px;align-items:center}
+.chat-lhs .eyebrow{color:rgba(255,255,255,.8);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15)}
+.chat-lhs .h2{color:#fff}
+.chat-lhs .body-txt{color:rgba(255,255,255,.6);margin-bottom:28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:'Figtree',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,.75);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:6px 14px;border-radius:100px;cursor:pointer;transition:.2s}
+.chip:hover{background:rgba(255,255,255,.2);color:#fff}
+.chat-win{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.3)}
+.chat-win-bar{background:#f0f0f0;padding:12px 16px;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--border)}
+.cwb-dot{width:12px;height:12px;border-radius:50%}
+.cwb-r{background:#ff5f57}.cwb-y{background:#febc2e}.cwb-g{background:#28c840}
+.cwb-title{font-size:12px;font-weight:600;color:var(--txt-3);margin-left:4px}
+.chat-msgs{padding:20px;min-height:260px;max-height:340px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth}
+.chat-msgs::-webkit-scrollbar{width:4px}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.cmsg{display:flex}
+.cmsg--ai{justify-content:flex-start}
+.cmsg--user{justify-content:flex-end}
+.cmsg-bubble{max-width:82%;padding:12px 16px;border-radius:16px;font-size:14px;line-height:1.6}
+.cmsg--ai .cmsg-bubble{background:var(--f9);color:var(--txt-1);border-radius:4px 16px 16px 16px}
+.cmsg--user .cmsg-bubble{background:var(--blue);color:#fff;border-radius:16px 4px 16px 16px}
+.cmsg-bubble strong{display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.det-row{display:flex;justify-content:space-between;gap:12px;font-size:13px;padding:3px 0}
+.det-lbl{color:var(--txt-3)}.det-val{font-weight:600;color:var(--txt-1);text-align:right}
+.src-tag{display:inline-block;margin-top:10px;font-size:11px;font-weight:600;color:var(--blue);background:var(--blue-bg);padding:3px 10px;border-radius:100px}
+.typing span{display:inline-block;width:6px;height:6px;background:var(--txt-3);border-radius:50%;margin-right:3px;animation:ty 1.3s ease-in-out infinite}
+.typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+@keyframes ty{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+.chat-bar{display:flex;border-top:1px solid var(--border)}
+.chat-inp{flex:1;font-family:'Figtree',sans-serif;font-size:14px;color:var(--txt-1);background:transparent;border:none;padding:14px 18px;outline:none}
+.chat-inp::placeholder{color:var(--txt-3)}
+.chat-go{width:50px;background:var(--blue);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.chat-go:hover{background:var(--blue-m)}
+
+/* ── FOOTER ── */
+.footer{background:var(--f9);border-top:1px solid var(--border);padding:40px 0}
+.footer-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:800;color:var(--blue);letter-spacing:-.03em}
+.footer-meta{font-size:12px;color:var(--txt-3);line-height:1.8;text-align:right}
+.footer-legal{font-size:11px;color:var(--txt-3);text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+
+/* ── MODAL ── */
+.modal-ov{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-ov.open{opacity:1;pointer-events:all}
+.modal-box{background:var(--white);border-radius:22px;width:100%;max-width:640px;max-height:85vh;overflow-y:auto;position:relative;transform:scale(.94) translateY(20px);transition:transform .32s cubic-bezier(.25,1,.5,1);box-shadow:0 40px 100px rgba(0,0,0,.3)}
+.modal-box::-webkit-scrollbar{width:4px}
+.modal-box::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.modal-ov.open .modal-box{transform:scale(1) translateY(0)}
+.modal-x{position:sticky;top:16px;float:right;margin:16px 16px 0 0;width:32px;height:32px;border-radius:50%;background:var(--f2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--txt-2);transition:.2s;z-index:10}
+.modal-x:hover{background:var(--border)}
+#mContent{padding:12px 32px 36px;clear:both}
+#mContent .m-eye{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+#mContent h2{font-size:26px;font-weight:800;letter-spacing:-.04em;color:var(--txt-1);margin-bottom:4px}
+#mContent .m-div{height:1px;background:var(--f2);margin:20px 0}
+#mContent p{font-size:14px;line-height:1.7;color:var(--txt-2);margin-bottom:12px}
+#mContent p strong{color:var(--txt-1)}
+#mContent table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px}
+#mContent th{background:var(--f9);padding:9px 14px;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--txt-3);text-align:left;border-bottom:1px solid var(--border)}
+#mContent td{padding:11px 14px;color:var(--txt-2);border-bottom:1px solid var(--f2);line-height:1.5;vertical-align:top}
+#mContent td strong{color:var(--txt-1)}
+#mContent tr:last-child td{border:none}
+#mContent tr:hover td{background:var(--f9)}
+
+/* ── HERO ANIM ── */
+.a1,.a2,.a3,.a4,.a5{opacity:0;transform:translateY(22px);animation:hup .9s cubic-bezier(.25,1,.5,1) forwards}
+.a1{animation-delay:.08s}.a2{animation-delay:.2s}.a3{animation-delay:.34s}.a4{animation-delay:.48s}.a5{animation-delay:.64s}
+@keyframes hup{to{opacity:1;transform:translateY(0)}}
+
+/* ═══════════════════════════════
+   SEZIONE 03 — CAMPAGNE
+═══════════════════════════════ */
+.camp-sec{background:var(--white)}
+
+/* Campagne cards - scroll orizzontale */
+.camp-scroll{overflow-x:auto;padding:0 24px 8px;scrollbar-width:none;margin:0 -24px}
+.camp-scroll::-webkit-scrollbar{display:none}
+.camp-track{display:flex;gap:14px;width:max-content;padding-bottom:4px}
+.camp-card{width:310px;flex-shrink:0;border-radius:20px;overflow:hidden;cursor:pointer;transition:transform .3s cubic-bezier(.25,1,.5,1),box-shadow .3s;border:1.5px solid transparent}
+.camp-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,55,129,.15)}
+.cc-head{padding:26px 26px 22px;position:relative;overflow:hidden}
+.cc-head::after{content:'';position:absolute;bottom:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.07)}
+.cc-1 .cc-head{background:#003781}
+.cc-2 .cc-head{background:#0057b8}
+.cc-3 .cc-head{background:#1a3a6b}
+.cc-4 .cc-head{background:#0a2540}
+.cc-5 .cc-head{background:#003366}
+.cc-6 .cc-head{background:#1d4ed8}
+.cc-status{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.9);background:rgba(255,255,255,.13);padding:4px 11px;border-radius:100px;margin-bottom:14px}
+.cc-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+.cc-period{float:right;font-size:11px;color:rgba(255,255,255,.45);padding-top:1px}
+.cc-title{font-size:20px;font-weight:800;letter-spacing:-.04em;color:#fff;line-height:1.2;margin-bottom:8px;clear:both}
+.cc-sub{font-size:13px;color:rgba(255,255,255,.6);line-height:1.55}
+.cc-body{padding:20px 26px 24px;background:#fff}
+.cc-stats{display:flex;gap:20px;margin-bottom:16px}
+.cc-stat strong{display:block;font-size:22px;font-weight:900;letter-spacing:-.04em;color:var(--txt-1);margin-bottom:1px}
+.cc-stat span{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--txt-3)}
+.cc-incentivo{font-size:13px;color:var(--txt-2);padding:10px 14px;background:var(--f9);border-radius:10px;line-height:1.5}
+.cc-incentivo strong{color:var(--blue)}
+
+/* Gare grid 4 col */
+.gare-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;border-radius:var(--r);overflow:hidden}
+.gg{background:var(--f9);padding:28px 24px;transition:.2s;cursor:pointer}
+.gg:first-child{background:var(--blue);border-radius:var(--r) 0 0 0}
+.gg:nth-child(4){border-radius:0 var(--r) 0 0}
+.gg:nth-child(5){border-radius:0 0 0 var(--r)}
+.gg:last-child{border-radius:0 0 var(--r) 0}
+.gg:hover{filter:brightness(.95)}
+.gg:first-child:hover{filter:brightness(1.08)}
+.gg-num{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.gg:first-child .gg-num{color:rgba(255,255,255,.5)}
+.gg:not(:first-child) .gg-num{color:var(--txt-3)}
+.gg-name{font-size:16px;font-weight:700;letter-spacing:-.02em;line-height:1.25;margin-bottom:8px}
+.gg:first-child .gg-name{color:#fff}
+.gg:not(:first-child) .gg-name{color:var(--txt-1)}
+.gg-desc{font-size:13px;line-height:1.55;margin-bottom:14px}
+.gg:first-child .gg-desc{color:rgba(255,255,255,.6)}
+.gg:not(:first-child) .gg-desc{color:var(--txt-2)}
+.gg-prize{font-size:13px;font-weight:700}
+.gg:first-child .gg-prize{color:rgba(255,255,255,.85)}
+.gg:not(:first-child) .gg-prize{color:var(--blue)}
+
+/* Iniziative list */
+.iniz-list{display:flex;flex-direction:column;gap:0;border-radius:var(--r);overflow:hidden;border:1.5px solid var(--border)}
+.iniz-row{display:grid;grid-template-columns:48px 1fr auto;gap:20px;align-items:center;padding:20px 24px;border-bottom:1px solid var(--f2);transition:.15s;cursor:pointer}
+.iniz-row:last-child{border:none}
+.iniz-row:hover{background:var(--blue-bg)}
+.iniz-icon{width:44px;height:44px;border-radius:12px;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.iniz-main{}
+.iniz-name{font-size:15px;font-weight:700;color:var(--txt-1);letter-spacing:-.02em;margin-bottom:3px}
+.iniz-desc{font-size:13px;color:var(--txt-2);line-height:1.5}
+.iniz-tag{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:100px;white-space:nowrap;flex-shrink:0}
+.iniz-tag--new{background:#d1fae5;color:#065f46}
+.iniz-tag--promo{background:var(--blue-bg);color:var(--blue)}
+.iniz-tag--event{background:#fef3c7;color:#92400e}
+.iniz-tag--digital{background:#f3e8ff;color:#6b21a8}
+
+/* ── RESPONSIVE campagne ── */
+@media(max-width:768px){
+  .gare-grid{grid-template-columns:repeat(2,1fr)}
+  .gg:first-child{border-radius:var(--r) 0 0 0}
+  .gg:nth-child(2){border-radius:0 var(--r) 0 0}
+  .gg:nth-child(7){border-radius:0 0 0 var(--r)}
+  .gg:last-child{border-radius:0 0 var(--r) 0}
+  .gg:nth-child(4){border-radius:0}
+  .gg:nth-child(5){border-radius:0}
+  .iniz-row{grid-template-columns:44px 1fr}
+  .iniz-tag{display:none}
+}
+@media(max-width:560px){
+  .gare-grid{grid-template-columns:1fr}
+  .gg{border-radius:0 !important}
+  .gg:first-child{border-radius:var(--r) var(--r) 0 0 !important}
+  .gg:last-child{border-radius:0 0 var(--r) var(--r) !important}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .gare-layout{grid-template-columns:1fr}
+  .strumenti-bento{grid-template-columns:repeat(2,1fr)}
+  .sb:nth-child(1){border-radius:var(--r) 0 0 0}
+  .sb:nth-child(2){border-radius:0 var(--r) 0 0}
+  .incentivi-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:860px){
+  .chat-layout{grid-template-columns:1fr}
+  .chat-rhs{order:-1}
+  .agenda-intro{grid-template-columns:1fr}
+  .kpi-trio{grid-template-columns:1fr}
+  .kpi-b:first-child{border-radius:var(--r) var(--r) 0 0}
+  .kpi-b:last-child{border-radius:0 0 var(--r) var(--r)}
+  .linee-grid{grid-template-columns:1fr}
+  .tl-head,.tl-row{grid-template-columns:70px 1fr}
+  .tl-head span:last-child,.tl-meta{display:none}
+  .eventi-highlights{grid-template-columns:1fr}
+  .strumenti-bento-2{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-pill{display:none}
+  .burger{display:flex}
+  .hero-nav-cards{grid-template-columns:repeat(2,1fr)}
+  .ob-head,.ob-row{grid-template-columns:1fr 120px 80px}
+  .ob-head span:last-child,.ob-rete{display:none}
+  .incentivi-grid{grid-template-columns:repeat(2,1fr)}
+  .strumenti-bento{grid-template-columns:1fr}
+  .sb:nth-child(1){border-radius:var(--r) var(--r) 0 0}
+  .sb:nth-child(2){border-radius:0}
+}
+@media(max-width:560px){
+  .hero-btns{flex-direction:column;align-items:stretch;text-align:center}
+  .hero-nav-cards{grid-template-columns:1fr}
+  .incentivi-grid{grid-template-columns:1fr}
+  .ec-head,.ec-row{grid-template-columns:1fr 80px}
+  .ec-head span:last-child,.ec-note{display:none}
+}
+  </style>
 </head>
 <body>
-  <h1>Ciao dal Distribution Book</h1>
-  <p>Verifica permessi di merge completata.</p>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#" class="nav-logo">
+      <svg width="28" height="18" viewBox="0 0 28 18" fill="none"><rect width="28" height="18" rx="3" fill="#003781"/><path d="M4 14V7l4-3 4 3v7" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14v-3h3v3" stroke="white" stroke-width="1.4" stroke-linecap="round"/><path d="M16 9h8M16 12h5M16 6h8" stroke="rgba(255,255,255,.4)" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Gruppo Assicurativo Italia
+    </a>
+    <div class="nav-links">
+      <a href="#strategia">Strategia</a>
+      <a href="#gare">Gare & Incentivi</a>
+      <a href="#campagne">Campagne</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#strumenti">Strumenti</a>
+    </div>
+    <a href="#chatbot" class="nav-pill">Assistente AI</a>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mob-menu" id="mobMenu">
+    <a href="#strategia">Strategia Commerciale</a>
+    <a href="#gare">Gare & Incentivi</a>
+    <a href="#campagne">Campagne Commerciali</a>
+    <a href="#agenda">Agenda 2026</a>
+    <a href="#strumenti">Strumenti di Supporto</a>
+    <a href="#chatbot">Assistente AI</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-badge a1"><span class="hero-badge-dot"></span> Distribution Book · Gruppo Assicurativo Italia · 2026</p>
+  <h1 class="hero-h1 a2">Il tuo anno.<br/><em>Inizia qui.</em></h1>
+  <p class="hero-sub a3">Tutto ciò che ti serve per il 2026: strategia, incentivi, eventi e strumenti per fare la differenza ogni giorno sul territorio.</p>
+  <div class="hero-btns a4">
+    <a href="#strategia" class="btn-s">Esplora il Book</a>
+    <a href="#chatbot" class="btn-g">Fai una Domanda</a>
+  </div>
+  <div class="hero-nav-cards a5" style="grid-template-columns:repeat(5,1fr)">
+    <a href="#strategia" class="hnc">
+      <div class="hnc-num">01</div>
+      <div class="hnc-label">Strategia Commerciale</div>
+      <div class="hnc-arrow">→</div>
+    </a>
+    <a href="#gare" class="hnc">
+      <div class="hnc-num">02</div>
+      <div class="hnc-label">Gare & Incentivi</div>
+      <div class="hnc-arrow">→</div>
+    </a>
+    <a href="#campagne" class="hnc">
+      <div class="hnc-num">03</div>
+      <div class="hnc-label">Campagne Commerciali</div>
+      <div class="hnc-arrow">→</div>
+    </a>
+    <a href="#agenda" class="hnc">
+      <div class="hnc-num">04</div>
+      <div class="hnc-label">Agenda 2026</div>
+      <div class="hnc-arrow">→</div>
+    </a>
+    <a href="#strumenti" class="hnc">
+      <div class="hnc-num">05</div>
+      <div class="hnc-label">Strumenti di Supporto</div>
+      <div class="hnc-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ 01 STRATEGIA COMMERCIALE ═══ -->
+<section class="strategia" id="strategia">
+  <div class="wrap">
+    <div class="sec-intro">
+      <div class="sec-intro-left">
+        <div class="eyebrow rev">01 — Strategia Commerciale</div>
+        <h2 class="h2 rev">Obiettivi chiari.<br/>Crescita misurabile.</h2>
+      </div>
+      <div class="sec-intro-right">
+        <p class="body-txt rev">Il 2026 è l'anno della crescita strutturata. Tre priorità strategiche, target ambiziosi per canale e un piano di sviluppo portfolio costruito per durare.</p>
+      </div>
+    </div>
+
+    <!-- KPI -->
+    <div class="kpi-trio rev-up">
+      <div class="kpi-b">
+        <div class="kpi-tag">Obiettivo principale</div>
+        <div class="kpi-num" data-target="18" data-suffix="%">0%</div>
+        <div class="kpi-lbl">Crescita Premi New Business</div>
+        <div class="kpi-desc">Target annuo su portafoglio nuovi clienti rispetto al consuntivo 2025</div>
+      </div>
+      <div class="kpi-b">
+        <div class="kpi-tag-dark">Qualità</div>
+        <div class="kpi-num" data-target="91" data-suffix="%">0%</div>
+        <div class="kpi-lbl">Retention Portfolio Target</div>
+        <div class="kpi-desc">Obiettivo di rinnovo sul portafoglio esistente. Media nazionale 2025: 87%</div>
+      </div>
+      <div class="kpi-b">
+        <div class="kpi-tag-dark">Soddisfazione</div>
+        <div class="kpi-num" data-target="4.4" data-suffix="/5">0</div>
+        <div class="kpi-lbl">NPS Cliente Target</div>
+        <div class="kpi-desc">Punteggio medio soddisfazione cliente post-sinistro e post-vendita</div>
+      </div>
+    </div>
+
+    <!-- LINEE STRATEGICHE -->
+    <div class="eyebrow rev" style="margin-top:56px">Linee Strategiche</div>
+    <h3 class="rev" style="font-size:26px;font-weight:800;letter-spacing:-.04em;margin-bottom:28px">Dove concentrare l'energia.</h3>
+    <div class="linee-grid rev-up">
+      <div class="linea-card">
+        <div class="linea-n">Linea 01</div>
+        <div class="linea-title">Motor + Protezione: il bundle vincente</div>
+        <div class="linea-body">Ogni cliente con polizza auto o moto deve ricevere una proposta strutturata su infortuni, casa o tutela legale. Cross-sell target: min. 1,8 prodotti per cliente attivo.</div>
+      </div>
+      <div class="linea-card">
+        <div class="linea-n">Linea 02</div>
+        <div class="linea-title">Presidio del segmento Famiglie</div>
+        <div class="linea-body">Focus su nuclei familiari 30–55 anni: polizza casa, infortuni e vita abbinate in proposta unica. La famiglia protetta è il cliente più fedele e con LTV superiore del 40%.</div>
+      </div>
+      <div class="linea-card">
+        <div class="linea-n">Linea 03</div>
+        <div class="linea-title">PMI e Professionisti: territorio libero</div>
+        <div class="linea-body">Artigiani, studi professionali e PMI under 20 dipendenti sono ancora sottoassicurati. Priorità assoluta per RC Professionale, Cyber e D&O con pacchetti dedicati.</div>
+      </div>
+      <div class="linea-card">
+        <div class="linea-n">Linea 04</div>
+        <div class="linea-title">Digital & Phygital</div>
+        <div class="linea-body">Adozione completa di Agent App per preventivi in mobilità, firma digitale e gestione sinistri. Target: 100% degli agenti attivi entro Q2 2026.</div>
+      </div>
+    </div>
+
+    <!-- OBIETTIVI CANALE -->
+    <div class="eyebrow rev" style="margin-top:56px">Target per Canale</div>
+    <h3 class="rev" style="font-size:26px;font-weight:800;letter-spacing:-.04em;margin-bottom:28px">Raccolta 2026 per rete.</h3>
+    <div class="obiettivi-table rev-up">
+      <div class="ob-head"><span>Canale</span><span>Target Raccolta</span><span>Crescita</span><span>Rete Attiva</span></div>
+      <div class="ob-row">
+        <div><div class="ob-canale">Agenzie Gruppo Assicurativo Italia</div><div class="ob-sub">Rete monomandataria</div></div>
+        <div class="ob-val">€ 1,24 Mld</div>
+        <div><span class="ob-badge">+12%</span></div>
+        <div class="ob-rete">420 agenzie</div>
+      </div>
+      <div class="ob-row">
+        <div><div class="ob-canale">Subagenti & Collaboratori</div><div class="ob-sub">Rete allargata</div></div>
+        <div class="ob-val">€ 380 Mln</div>
+        <div><span class="ob-badge">+9%</span></div>
+        <div class="ob-rete">1.100+ produttori</div>
+      </div>
+      <div class="ob-row">
+        <div><div class="ob-canale">Broker Convenzionati</div><div class="ob-sub">Canale intermediato</div></div>
+        <div class="ob-val">€ 210 Mln</div>
+        <div><span class="ob-badge">+15%</span></div>
+        <div class="ob-rete">88 broker</div>
+      </div>
+      <div class="ob-row">
+        <div><div class="ob-canale">Direct Online</div><div class="ob-sub">Canale digitale diretto</div></div>
+        <div class="ob-val">€ 290 Mln</div>
+        <div><span class="ob-badge ob-badge--hot">+28%</span></div>
+        <div class="ob-rete">Online</div>
+      </div>
+      <div class="ob-row">
+        <div><div class="ob-canale">Bancassicurazione</div><div class="ob-sub">Unicredit Gruppo Assicurativo Italia Ass.</div></div>
+        <div class="ob-val">€ 175 Mln</div>
+        <div><span class="ob-badge">+7%</span></div>
+        <div class="ob-rete">24 istituti</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 02 GARE E INCENTIVI ═══ -->
+<section class="gare-sec" id="gare">
+  <div class="wrap">
+    <div class="sec-intro">
+      <div class="sec-intro-left">
+        <div class="eyebrow rev">02 — Gare & Incentivi</div>
+        <h2 class="h2 rev">Meriti premiati.<br/>Risultati riconosciuti.</h2>
+      </div>
+      <div class="sec-intro-right">
+        <p class="body-txt rev">Un sistema di incentivazione trasparente e progressivo, pensato per valorizzare ogni professionista della rete — dal collaboratore junior all'agenzia top performer.</p>
+      </div>
+    </div>
+
+    <!-- GARA PRINCIPALE + PUNTI -->
+    <div class="gare-layout rev-up">
+      <div class="gara-hero">
+        <div class="gh-badge">Gara Principale — Tutti gli agenti</div>
+        <h3 class="gh-title">Top Agent 2026</h3>
+        <p class="gh-body">La competizione principale dell'anno. Sistema a punti trimestrale con classifica nazionale aggiornata in real-time su Agent App. I migliori 3 di ogni trimestre salgono sul podio nazionale.</p>
+        <div class="gh-prizes">
+          <div class="gp"><span class="gp-pos">🥇 1° Classificato</span><span class="gp-val">€4.000 + Viaggio Gruppo Assicurativo Italia Premium</span></div>
+          <div class="gp"><span class="gp-pos">🥈 2° Classificato</span><span class="gp-val">€2.500 + Voucher Experience €400</span></div>
+          <div class="gp"><span class="gp-pos">🥉 3° Classificato</span><span class="gp-val">€1.500 + Tech Pack premium</span></div>
+          <div class="gp"><span class="gp-pos">Top 15 nazionale</span><span class="gp-val">+2% extra comm. sul trimestre</span></div>
+          <div class="gp"><span class="gp-pos">Top 50 nazionale</span><span class="gp-val">+1% extra comm. sul trimestre</span></div>
+        </div>
+      </div>
+      <div class="pts-card">
+        <div class="pts-title">Sistema Punti</div>
+        <div class="pt-row"><span>Nuova polizza Auto/Moto</span><strong>6 pt</strong></div>
+        <div class="pt-row"><span>Polizza Casa (nuovo cliente)</span><strong>10 pt</strong></div>
+        <div class="pt-row"><span>Polizza Infortuni Famiglia</span><strong>8 pt</strong></div>
+        <div class="pt-row pt-row--hot"><span>Bundle Motor + Protezione</span><strong>18 pt</strong></div>
+        <div class="pt-row pt-row--hot"><span>Pacchetto PMI completo</span><strong>22 pt</strong></div>
+        <div class="pt-row"><span>Polizza Cyber Safe PMI</span><strong>14 pt</strong></div>
+        <div class="pt-row"><span>Retention senza variazioni</span><strong>3 pt</strong></div>
+        <div class="pt-row"><span>NPS cliente ≥ 4,5</span><strong>2 pt</strong></div>
+      </div>
+    </div>
+
+    <!-- FASCE BONUS -->
+    <div class="eyebrow rev" style="margin-top:56px">Bonus Trimestrali</div>
+    <h3 class="rev" style="font-size:26px;font-weight:800;letter-spacing:-.04em;margin-bottom:24px">Quattro fasce, un solo obiettivo.</h3>
+    <div class="incentivi-grid rev-up">
+      <div class="inc-card" style="background:#fff;border-radius:var(--r) 0 0 var(--r);border:1.5px solid var(--border)">
+        <div class="inc-letter" style="font-size:36px">A</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--blue);margin-bottom:4px">Eccellenza</div>
+        <div class="inc-cond">&gt; 120% del budget assegnato</div>
+        <div class="inc-reward" style="color:var(--blue)">€3.000</div>
+        <div class="inc-extra">+ 2,5% extra su tutte le commissioni</div>
+      </div>
+      <div class="inc-card" style="background:var(--f9);border:1.5px solid var(--border);border-left:none">
+        <div class="inc-letter">B</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--txt-3);margin-bottom:4px">Obiettivo</div>
+        <div class="inc-cond">100–120% del budget assegnato</div>
+        <div class="inc-reward">€1.800</div>
+        <div class="inc-extra" style="color:var(--txt-2)">+ 1,5% extra commissioni</div>
+      </div>
+      <div class="inc-card" style="background:var(--f9);border:1.5px solid var(--border);border-left:none">
+        <div class="inc-letter">C</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--txt-3);margin-bottom:4px">Progresso</div>
+        <div class="inc-cond">80–99% del budget assegnato</div>
+        <div class="inc-reward">€700</div>
+        <div class="inc-extra" style="color:var(--txt-2)">Nessuna extra commissione</div>
+      </div>
+      <div class="inc-card inc-card--dim" style="background:var(--f9);border:1.5px solid var(--border);border-left:none;border-radius:0 var(--r) var(--r) 0">
+        <div class="inc-letter">D</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--txt-3);margin-bottom:4px">Base</div>
+        <div class="inc-cond">&lt; 80% del budget assegnato</div>
+        <div class="inc-reward">—</div>
+        <div class="inc-extra" style="color:var(--txt-3)">Piano di supporto attivato</div>
+      </div>
+    </div>
+
+    <!-- EXTRA COMMISSIONI -->
+    <div class="eyebrow rev" style="margin-top:56px">Commissioni Extra per Prodotto</div>
+    <h3 class="rev" style="font-size:26px;font-weight:800;letter-spacing:-.04em;margin-bottom:24px">Premia chi spinge le priorità.</h3>
+    <div class="extra-comm rev-up">
+      <div class="ec-head"><span>Prodotto</span><span style="text-align:center">Extra</span><span style="text-align:right">Note</span></div>
+      <div class="ec-row"><span class="ec-prod">Cyber Safe (PMI)</span><span class="ec-rate ec-rate--hot">+3,0%</span><span class="ec-note">Priorità 2026 — senza tetto</span></div>
+      <div class="ec-row"><span class="ec-prod">Bundle Motor + Protezione</span><span class="ec-rate ec-rate--hot">+2,5%</span><span class="ec-note">Su entrambe le polizze</span></div>
+      <div class="ec-row"><span class="ec-prod">Pacchetti PMI 3+ prodotti</span><span class="ec-rate">+2,0%</span><span class="ec-note">Pre-approvazione UW richiesta</span></div>
+      <div class="ec-row"><span class="ec-prod">Polizza Casa (primo acquisto)</span><span class="ec-rate">+1,8%</span><span class="ec-note">Solo nuovi clienti casa</span></div>
+      <div class="ec-row"><span class="ec-prod">Infortuni Famiglia</span><span class="ec-rate">+1,5%</span><span class="ec-note">Premio annuo &gt; €400</span></div>
+      <div class="ec-row"><span class="ec-prod">Retention &gt; 93% annua</span><span class="ec-rate">€2.200</span><span class="ec-note">Bonus qualità — dicembre</span></div>
+      <div class="ec-row"><span class="ec-prod">NPS medio ≥ 4,5 (min 25 survey)</span><span class="ec-rate">€600</span><span class="ec-note">Bonus annuale soddisfazione</span></div>
+    </div>
+
+    <!-- GARE SPECIALI -->
+    <div class="eyebrow rev" style="margin-top:56px">Gare Speciali</div>
+    <h3 class="rev" style="font-size:26px;font-weight:800;letter-spacing:-.04em;margin-bottom:24px">Per ogni livello della rete.</h3>
+    <div class="linee-grid rev-up">
+      <div class="linea-card">
+        <div class="linea-n">Gara Collaboratori</div>
+        <div class="linea-title">Rising Star Gruppo Assicurativo Italia 2026</div>
+        <div class="linea-body">Per produttori con meno di 3 anni di mandato. Obiettivo minimo 20 polizze/trimestre. Top 3 nazionali: promozione a Sub-Agente + <strong>€3.500</strong> premio annuale.</div>
+      </div>
+      <div class="linea-card">
+        <div class="linea-n">Gara Area Manager</div>
+        <div class="linea-title">Excellence Leadership 2026</div>
+        <div class="linea-body">Valutazione su crescita raccolta area (40%), nuovi agenti attivati (20%), retention media (25%) e NPS (15%). I top 5 AM nazionali volano all'Leadership Summit internazionale.</div>
+      </div>
+      <div class="linea-card">
+        <div class="linea-n">Sprint Trimestrale</div>
+        <div class="linea-title">Casa Sprint Q1 & Q3</div>
+        <div class="linea-body">Competizione dedicata alla polizza casa nei trimestri 1 e 3. Chi supera 15 polizze casa nel trimestre vince un <strong>voucher €500</strong> cumulabile con tutti gli altri incentivi.</div>
+      </div>
+      <div class="linea-card">
+        <div class="linea-n">Gara Cyber</div>
+        <div class="linea-title">Cyber Champion 2026</div>
+        <div class="linea-body">Gara dedicata alla vendita di Cyber Safe alle PMI. Chi porta 5+ polizze Cyber nel semestre accede al club esclusivo <strong>Cyber Elite</strong> con formazione avanzata.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 03 CAMPAGNE COMMERCIALI ═══ -->
+<section class="camp-sec" id="campagne">
+  <div class="wrap">
+    <div class="sec-intro">
+      <div class="sec-intro-left">
+        <div class="eyebrow rev">03 — Campagne Commerciali</div>
+        <h2 class="h2 rev">Azioni mirate.<br/>Risultati concreti.</h2>
+      </div>
+      <div class="sec-intro-right">
+        <p class="body-txt rev">Sei campagne attive, otto gare sul territorio e sei iniziative speciali per accelerare la produzione in ogni segmento e in ogni area geografica.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 CAMPAGNE -->
+  <div class="wrap">
+    <div class="eyebrow rev">Le Campagne Attive</div>
+    <h3 class="rev" style="font-size:26px;font-weight:800;letter-spacing:-.04em;margin-bottom:28px">6 campagne per tutto l'anno.</h3>
+  </div>
+  <div style="max-width:1040px;margin:0 auto">
+    <div class="camp-scroll">
+      <div class="camp-track rev-up">
+
+        <div class="camp-card cc-1">
+          <div class="cc-head">
+            <span class="cc-status"><i class="cc-dot"></i>Attiva</span>
+            <span class="cc-period">Gen – Mar 2026</span>
+            <div class="cc-title">Motor Protection Bundle</div>
+            <div class="cc-sub">Abbina RC Auto o Moto a una polizza Infortuni o Casa. Il bundle più premiato dell'anno.</div>
+          </div>
+          <div class="cc-body">
+            <div class="cc-stats">
+              <div class="cc-stat"><strong>8.500</strong><span>Polizze obiettivo</span></div>
+              <div class="cc-stat"><strong>+2,5%</strong><span>Extra commissione</span></div>
+            </div>
+            <div class="cc-incentivo">Bonus agente <strong>€250</strong> per ogni bundle completo con premio annuo &gt; €600</div>
+          </div>
+        </div>
+
+        <div class="camp-card cc-2">
+          <div class="cc-head">
+            <span class="cc-status"><i class="cc-dot"></i>Attiva</span>
+            <span class="cc-period">Feb – Mag 2026</span>
+            <div class="cc-title">Casa Sicura Gruppo Assicurativo Italia</div>
+            <div class="cc-sub">Campagna dedicata alla polizza Io e la mia Casa per proprietari e nuovi acquirenti di immobili.</div>
+          </div>
+          <div class="cc-body">
+            <div class="cc-stats">
+              <div class="cc-stat"><strong>5.200</strong><span>Polizze obiettivo</span></div>
+              <div class="cc-stat"><strong>+1,8%</strong><span>Extra commissione</span></div>
+            </div>
+            <div class="cc-incentivo">Bonus <strong>€180</strong> per polizza con somma assicurata &gt; €200.000. Gara dedicata mensile.</div>
+          </div>
+        </div>
+
+        <div class="camp-card cc-3">
+          <div class="cc-head">
+            <span class="cc-status"><i class="cc-dot"></i>Attiva</span>
+            <span class="cc-period">Mar – Giu 2026</span>
+            <div class="cc-title">PMI Proteggi il Futuro</div>
+            <div class="cc-sub">RC Impresa, D&amp;O e Cyber Safe per PMI, artigiani e professionisti. Il segmento a maggior crescita.</div>
+          </div>
+          <div class="cc-body">
+            <div class="cc-stats">
+              <div class="cc-stat"><strong>1.800</strong><span>Clienti obiettivo</span></div>
+              <div class="cc-stat"><strong>+3,0%</strong><span>Extra commissione</span></div>
+            </div>
+            <div class="cc-incentivo">Bonus <strong>€500</strong> per pacchetto PMI 3+ prodotti. Extra <strong>1%</strong> su pacchetti &gt; €4.000 di premio annuo.</div>
+          </div>
+        </div>
+
+        <div class="camp-card cc-4">
+          <div class="cc-head">
+            <span class="cc-status" style="background:rgba(245,200,66,.18);color:#f5c842"><i class="cc-dot" style="background:#f5c842"></i>Premium</span>
+            <span class="cc-period">Apr – Set 2026</span>
+            <div class="cc-title">Vita & Previdenza</div>
+            <div class="cc-sub">Polizze vita, fondi pensione e prodotti di risparmio per clienti 40–65 anni con risparmio disponibile.</div>
+          </div>
+          <div class="cc-body">
+            <div class="cc-stats">
+              <div class="cc-stat"><strong>€320M</strong><span>Raccolta obiettivo</span></div>
+              <div class="cc-stat"><strong>Trofeo</strong><span>Top Life Advisor</span></div>
+            </div>
+            <div class="cc-incentivo">Abilitazione MiFID obbligatoria. Bonus scalare da <strong>€800 a €4.000</strong> sulla raccolta semestrale.</div>
+          </div>
+        </div>
+
+        <div class="camp-card cc-5">
+          <div class="cc-head">
+            <span class="cc-status" style="background:rgba(52,211,153,.15);color:#34d399"><i class="cc-dot" style="background:#34d399"></i>Green</span>
+            <span class="cc-period">Mag – Ago 2026</span>
+            <div class="cc-title">EV Special — Auto Elettrica</div>
+            <div class="cc-sub">Campagna dedicata alle auto elettriche e ibride. Target: proprietari di EV e acquirenti di nuovi veicoli a zero emissioni.</div>
+          </div>
+          <div class="cc-body">
+            <div class="cc-stats">
+              <div class="cc-stat"><strong>3.400</strong><span>Polizze obiettivo</span></div>
+              <div class="cc-stat"><strong>€200</strong><span>Bonus per polizza</span></div>
+            </div>
+            <div class="cc-incentivo">Partner attivi: 38 concessionari EV convenzionati. Lead qualificati inviati direttamente all'agente di zona.</div>
+          </div>
+        </div>
+
+        <div class="camp-card cc-6">
+          <div class="cc-head">
+            <span class="cc-status"><i class="cc-dot"></i>Attiva</span>
+            <span class="cc-period">Set – Dic 2026</span>
+            <div class="cc-title">Protezione Famiglia Autunno</div>
+            <div class="cc-sub">Infortuni, salute e tutela legale per il nucleo familiare. Campagna di chiusura anno con obiettivi rinforzati.</div>
+          </div>
+          <div class="cc-body">
+            <div class="cc-stats">
+              <div class="cc-stat"><strong>6.000</strong><span>Polizze obiettivo</span></div>
+              <div class="cc-stat"><strong>+1,5%</strong><span>Extra commissione</span></div>
+            </div>
+            <div class="cc-incentivo">Bonus <strong>€150</strong> per polizza doppia Infortuni + Tutela Legale. Ranking mensile con premi extra Q4.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 GARE -->
+  <div class="wrap" style="margin-top:64px">
+    <div class="eyebrow rev">Le Gare sul Territorio</div>
+    <h3 class="rev" style="font-size:26px;font-weight:800;letter-spacing:-.04em;margin-bottom:28px">8 gare per ogni profilo di agente.</h3>
+    <div class="gare-grid rev-up">
+
+      <div class="gg">
+        <div class="gg-num">Gara 01</div>
+        <div class="gg-name">Top Agent 2026</div>
+        <div class="gg-desc">La gara principale dell'anno. Sistema a punti trimestrale per tutti gli agenti attivi con mandato.</div>
+        <div class="gg-prize">🥇 €4.000 + Viaggio Premium</div>
+      </div>
+
+      <div class="gg">
+        <div class="gg-num">Gara 02</div>
+        <div class="gg-name">Rising Star</div>
+        <div class="gg-desc">Per collaboratori under 3 anni di mandato. Classifica dedicata con promozione a Sub-Agente.</div>
+        <div class="gg-prize">🌟 Sub-Agente + €3.500</div>
+      </div>
+
+      <div class="gg">
+        <div class="gg-num">Gara 03</div>
+        <div class="gg-name">Casa Sprint Q1&Q3</div>
+        <div class="gg-desc">Competizione a tema casa nei trimestri 1 e 3. Chi supera 15 polizze vince il voucher sprint.</div>
+        <div class="gg-prize">🏠 Voucher €500</div>
+      </div>
+
+      <div class="gg">
+        <div class="gg-num">Gara 04</div>
+        <div class="gg-name">Cyber Champion</div>
+        <div class="gg-desc">Gara semestrale dedicata a Cyber Safe PMI. 5+ polizze nel semestre per accedere all'elite.</div>
+        <div class="gg-prize">🔐 Cyber Elite</div>
+      </div>
+
+      <div class="gg">
+        <div class="gg-num">Gara 05</div>
+        <div class="gg-name">Motor Master</div>
+        <div class="gg-desc">Gara trimestrale sui bundle Motor+Protezione. Classifica separata per auto, moto e veicoli EV.</div>
+        <div class="gg-prize">🚗 €1.200 + Tech Pack</div>
+      </div>
+
+      <div class="gg">
+        <div class="gg-num">Gara 06</div>
+        <div class="gg-name">Excellence Leadership</div>
+        <div class="gg-desc">Gara annuale per Area Manager. Valutazione su raccolta, nuovi agenti, retention e NPS area.</div>
+        <div class="gg-prize">✈️ Leadership Summit Monaco</div>
+      </div>
+
+      <div class="gg">
+        <div class="gg-num">Gara 07</div>
+        <div class="gg-name">PMI Challenger</div>
+        <div class="gg-desc">Chi porta più clienti PMI nel semestre vince. Focus su pacchetti completi RC+D&O+Cyber.</div>
+        <div class="gg-prize">💼 €2.000 + Formazione avanzata</div>
+      </div>
+
+      <div class="gg">
+        <div class="gg-num">Gara 08</div>
+        <div class="gg-name">Retention King</div>
+        <div class="gg-desc">Premia gli agenti con il più alto tasso di rinnovo del portafoglio. Calcolata su base annuale.</div>
+        <div class="gg-prize">👑 €1.800 + Targa Gold</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 6 INIZIATIVE -->
+  <div class="wrap" style="margin-top:64px">
+    <div class="eyebrow rev">Le Iniziative Speciali</div>
+    <h3 class="rev" style="font-size:26px;font-weight:800;letter-spacing:-.04em;margin-bottom:28px">6 iniziative per fare la differenza.</h3>
+    <div class="iniz-list rev-up">
+
+      <div class="iniz-row">
+        <div class="iniz-icon">🤝</div>
+        <div class="iniz-main">
+          <div class="iniz-name">Lead Generation Partnership EV</div>
+          <div class="iniz-desc">Accordo con 38 concessionari auto elettriche convenzionati. Lead qualificati inviati automaticamente all'agente di zona per ogni acquisto di veicolo EV. Nessun costo per l'agente.</div>
+        </div>
+        <span class="iniz-tag iniz-tag--new">Nuovo 2026</span>
+      </div>
+
+      <div class="iniz-row">
+        <div class="iniz-icon">📱</div>
+        <div class="iniz-main">
+          <div class="iniz-name">Campagna Social Local — Kit Pronto</div>
+          <div class="iniz-desc">Pacchetto di 24 post pronti all'uso (Instagram, LinkedIn, Facebook) personalizzabili con il nome dell'agenzia. Include 4 video-stories mensili e 2 newsletter template. Disponibile su Marketing Hub.</div>
+        </div>
+        <span class="iniz-tag iniz-tag--digital">Digitale</span>
+      </div>
+
+      <div class="iniz-row">
+        <div class="iniz-icon">🏫</div>
+        <div class="iniz-main">
+          <div class="iniz-name">Assicurazione nelle Scuole di Guida</div>
+          <div class="iniz-desc">Iniziativa di co-marketing con 120 scuole guida convenzionate in tutta Italia. Ogni neopatentato riceve materiale Gruppo Assicurativo Italia e uno sconto del 15% sulla prima polizza RC Auto. Lead assegnati per CAP.</div>
+        </div>
+        <span class="iniz-tag iniz-tag--promo">Promo</span>
+      </div>
+
+      <div class="iniz-row">
+        <div class="iniz-icon">🏘️</div>
+        <div class="iniz-main">
+          <div class="iniz-name">Fiere Immobiliari — Presidio Gruppo Assicurativo Italia</div>
+          <div class="iniz-desc">Presenza con stand brandizzato Gruppo Assicurativo Italia alle principali fiere immobiliari regionali (14 eventi previsti). L'agente di zona gestisce il presidio e raccoglie i lead generati. Kit stand fornito da Gruppo Assicurativo Italia.</div>
+        </div>
+        <span class="iniz-tag iniz-tag--event">Evento</span>
+      </div>
+
+      <div class="iniz-row">
+        <div class="iniz-icon">💡</div>
+        <div class="iniz-main">
+          <div class="iniz-name">PMI Tour — Incontri sul Territorio</div>
+          <div class="iniz-desc">Ciclo di 30 incontri b2b nelle sedi di CNA, Confartigianato e Confcommercio locali. L'agente presenta i pacchetti PMI a piccoli imprenditori. Materiali e supporto logistico forniti da Gruppo Assicurativo Italia.</div>
+        </div>
+        <span class="iniz-tag iniz-tag--event">Evento</span>
+      </div>
+
+      <div class="iniz-row">
+        <div class="iniz-icon">🎯</div>
+        <div class="iniz-main">
+          <div class="iniz-name">Programma Referral Cliente Soddisfatto</div>
+          <div class="iniz-desc">Ogni cliente con NPS ≥ 4,5 può segnalare un amico o collega. Per ogni referral convertito: €50 di sconto per il cliente segnalante, €100 di bonus per l'agente. Tracciato su Agent App.</div>
+        </div>
+        <span class="iniz-tag iniz-tag--new">Nuovo 2026</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 04 AGENDA ═══ -->
+<section class="agenda-sec" id="agenda">
+  <div class="wrap">
+    <div class="agenda-intro">
+      <div>
+        <div class="eyebrow rev">04 — Agenda 2026</div>
+        <h2 class="h2 rev">Il calendario<br/>che conta.</h2>
+      </div>
+      <div>
+        <p class="body-txt rev">Convention, roadshow sul territorio, workshop di prodotto e webinar formativi: 12 mesi di appuntamenti per restare connessi, motivati e sempre aggiornati.</p>
+      </div>
+    </div>
+
+    <div class="timeline rev-up">
+      <div class="tl-head"><span>Mese</span><span>Evento</span><span style="text-align:right">Dove · Tipo</span></div>
+
+      <div class="tl-row">
+        <div class="tl-month">Gen</div>
+        <div class="tl-main">
+          <div class="tl-event">Kick-Off Convention Nazionale 2026</div>
+          <div class="tl-desc">Apertura ufficiale dell'anno commerciale. Presentazione strategia, obiettivi e nuovi prodotti a tutta la rete agenziale.</div>
+        </div>
+        <div class="tl-meta"><div class="tl-city">Milano — MiCo Milano</div><span class="tl-type tl-type--conv">Convention</span></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-month">Feb</div>
+        <div class="tl-main">
+          <div class="tl-event">Roadshow Nord Italia — Prodotti Motor</div>
+          <div class="tl-desc">Presentazione RC Auto nuova generazione e Polizza EV. Tour su 6 città: Milano, Torino, Venezia, Verona, Genova, Brescia.</div>
+        </div>
+        <div class="tl-meta"><div class="tl-city">Nord Italia</div><span class="tl-type tl-type--road">Roadshow</span></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-month">Mar</div>
+        <div class="tl-main">
+          <div class="tl-event">Workshop Cyber Risk & PMI</div>
+          <div class="tl-desc">Formazione pratica sulla vendita di Cyber Safe e pacchetti PMI. Include simulazioni di colloquio e role-playing con casi reali.</div>
+        </div>
+        <div class="tl-meta"><div class="tl-city">Online + Hub locali</div><span class="tl-type tl-type--form">Formazione</span></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-month">Mar</div>
+        <div class="tl-main">
+          <div class="tl-event">Review Q1 — Business Performance</div>
+          <div class="tl-desc">Sessione di analisi risultati primo trimestre. Condivisione best practice e aggiustamenti tattici con tutti gli Area Manager.</div>
+        </div>
+        <div class="tl-meta"><div class="tl-city">Online</div><span class="tl-type tl-type--rev">Review</span></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-month">Apr</div>
+        <div class="tl-main">
+          <div class="tl-event">Roadshow Centro Italia — Famiglia & Casa</div>
+          <div class="tl-desc">Presentazione Io e la mia Casa e prodotti protezione famiglia. Tour su Roma, Firenze, Bologna, Ancona, Perugia.</div>
+        </div>
+        <div class="tl-meta"><div class="tl-city">Centro Italia</div><span class="tl-type tl-type--road">Roadshow</span></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-month">Mag</div>
+        <div class="tl-main">
+          <div class="tl-event">Webinar: Consulenza Evoluta e NPS</div>
+          <div class="tl-desc">Come aumentare il NPS e fidelizzare il cliente con tecniche di consulenza avanzata. Sessione con esperti Gruppo Assicurativo Italia e casi studio.</div>
+        </div>
+        <div class="tl-meta"><div class="tl-city">Online</div><span class="tl-type tl-type--web">Webinar</span></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-month">Giu</div>
+        <div class="tl-main">
+          <div class="tl-event">Convention Estiva — Mid-Year Summit</div>
+          <div class="tl-desc">Premiazione top performer Q1–Q2. Presentazione nuove campagne secondo semestre. Networking e gala dinner per tutta la rete.</div>
+        </div>
+        <div class="tl-meta"><div class="tl-city">Rimini — Palacongressi</div><span class="tl-type tl-type--conv">Convention</span></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-month">Set</div>
+        <div class="tl-main">
+          <div class="tl-event">Roadshow Sud Italia & Isole</div>
+          <div class="tl-desc">Tour dedicato alle agenzie del Sud: Napoli, Bari, Palermo, Catania, Reggio Calabria. Focus su mercato locale e opportunità PMI.</div>
+        </div>
+        <div class="tl-meta"><div class="tl-city">Sud & Isole</div><span class="tl-type tl-type--road">Roadshow</span></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-month">Set</div>
+        <div class="tl-main">
+          <div class="tl-event">Review Q3 + Sprint Piano Autunno</div>
+          <div class="tl-desc">Analisi terzo trimestre e lancio ufficiale delle campagne autunnali. Obiettivi Q4 e attivazione gare finali dell'anno.</div>
+        </div>
+        <div class="tl-meta"><div class="tl-city">Online</div><span class="tl-type tl-type--rev">Review</span></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-month">Ott</div>
+        <div class="tl-main">
+          <div class="tl-event">Workshop Pianificazione Patrimoniale</div>
+          <div class="tl-desc">Tecniche di consulenza su polizze vita, previdenza integrativa e successione. Abilitazione avanzata per agenti certificati.</div>
+        </div>
+        <div class="tl-meta"><div class="tl-city">Milano + Online</div><span class="tl-type tl-type--form">Formazione</span></div>
+      </div>
+
+      <div class="tl-row tl-row--hl">
+        <div class="tl-month">Dic</div>
+        <div class="tl-main">
+          <div class="tl-event">🏆 Gala Premiazione — Top Performer 2026</div>
+          <div class="tl-desc">La serata più attesa dell'anno. Premiazione dei migliori agenti, collaboratori e Area Manager. Calcolo e comunicazione bonus annuali.</div>
+        </div>
+        <div class="tl-meta"><div class="tl-city">Milano — Palazzo Parigi</div><span class="tl-type tl-type--gala">Gala</span></div>
+      </div>
+    </div>
+
+    <!-- EVENTI IN EVIDENZA -->
+    <div class="eyebrow rev" style="margin-top:56px">Da non perdere</div>
+    <h3 class="rev" style="font-size:26px;font-weight:800;letter-spacing:-.04em;margin-bottom:24px">I tre appuntamenti dell'anno.</h3>
+    <div class="eventi-highlights rev-up">
+      <div class="ev-card">
+        <div class="ev-card-top">
+          <div class="ev-date">15 Gennaio 2026 · Milano</div>
+          <div class="ev-name">Kick-Off Convention Nazionale</div>
+        </div>
+        <div class="ev-card-body">
+          <div class="ev-loc">📍 Milano Congressi</div>
+          <div class="ev-body-desc">L'evento che dà il via all'anno. Strategia, prodotti, gare: tutto presentato dal CEO e dal Direttore Commerciale. Partecipazione obbligatoria per tutti gli agenti.</div>
+        </div>
+      </div>
+      <div class="ev-card">
+        <div class="ev-card-top ev-card-top--2">
+          <div class="ev-date">19–20 Giugno 2026 · Rimini</div>
+          <div class="ev-name">Mid-Year Summit & Premiazioni</div>
+        </div>
+        <div class="ev-card-body">
+          <div class="ev-loc">📍 Rimini — Palacongressi</div>
+          <div class="ev-body-desc">Il punto di metà anno. Premiazione dei top performer del primo semestre, lancio campagne estive e networking con tutta la rete nazionale.</div>
+        </div>
+      </div>
+      <div class="ev-card">
+        <div class="ev-card-top ev-card-top--3">
+          <div class="ev-date">10 Dicembre 2026 · Milano</div>
+          <div class="ev-name">Gala Top Performer 2026</div>
+        </div>
+        <div class="ev-card-body">
+          <div class="ev-loc">📍 Palazzo Parigi — Milano</div>
+          <div class="ev-body-desc">La serata più esclusiva dell'anno. Cerimonia di premiazione formale, comunicazione bonus annuali e accesso al club Excellence per i top 20 nazionali.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 04 STRUMENTI ═══ -->
+<section class="strumenti-sec" id="strumenti">
+  <div class="wrap">
+    <div class="sec-intro">
+      <div class="sec-intro-left">
+        <div class="eyebrow rev">05 — Strumenti di Supporto</div>
+        <h2 class="h2 rev">Tutto quello<br/>che ti serve.</h2>
+      </div>
+      <div class="sec-intro-right">
+        <p class="body-txt rev">Formazione continua, materiali di marketing pronti all'uso, brand toolkit e convenzioni esclusive. Gruppo Assicurativo Italia investe nei suoi agenti ogni giorno.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;padding:0 24px">
+    <div class="strumenti-bento rev-up">
+      <div class="sb sb--dark">
+        <div class="sb-tag">Formazione</div>
+        <div class="sb-title">Accademia Commerciale</div>
+        <div class="sb-body">Piattaforma e-learning con oltre 200 corsi online, certificazioni IVASS, aule virtuali e percorsi di sviluppo personalizzati per ogni livello della rete.</div>
+        <ul class="sb-list">
+          <li>Corsi obbligatori IVASS (60 ore/anno)</li>
+          <li>Certificazione Consulente Evoluto</li>
+          <li>Percorso Cyber & Digitale</li>
+          <li>Masterclass con top agent</li>
+        </ul>
+        <div class="sb-more">academy.gruppoassicurativoitalia.it →</div>
+      </div>
+      <div class="sb sb--blue">
+        <div class="sb-tag">Marketing</div>
+        <div class="sb-title">Marketing Hub</div>
+        <div class="sb-body">Libreria digitale con tutti i materiali pronti all'uso: brochure, presentazioni, post social, video, script di vendita e landing page personalizzabili.</div>
+        <ul class="sb-list">
+          <li>Template social media aggiornati</li>
+          <li>Kit campagne locali</li>
+          <li>Video prodotto scaricabili</li>
+          <li>Script e presentazioni clienti</li>
+        </ul>
+        <div class="sb-more">hub.gruppoassicurativoitalia.it →</div>
+      </div>
+      <div class="sb sb--light" style="border:1.5px solid var(--border)">
+        <div class="sb-tag">Brand & Comunicazione</div>
+        <div class="sb-title">Brand Toolkit Gruppo Assicurativo Italia</div>
+        <div class="sb-body">Logo, colori, font, template: tutto ciò che serve per comunicare il brand Gruppo Assicurativo Italia in modo coerente e professionale su ogni canale.</div>
+        <ul class="sb-list">
+          <li>Linee guida brand 2026</li>
+          <li>Materiali per agenzia fisherà</li>
+          <li>Template email e newsletter</li>
+          <li>Segnaletica e merchandising</li>
+        </ul>
+        <div class="sb-more">brand.gruppoassicurativoitalia.it →</div>
+      </div>
+    </div>
+    <div class="strumenti-bento-2 rev-up" style="transition-delay:.1s">
+      <div class="sb sb--mid">
+        <div class="sb-tag">Tecnologia</div>
+        <div class="sb-title">Agent App</div>
+        <div class="sb-body">La tua agenzia in tasca. Preventivi in mobilità, firma digitale, gestione sinistri, classifica gare in real-time e notifiche push su scadenze e rinnovi. Disponibile iOS e Android.</div>
+        <ul class="sb-list">
+          <li>Preventivo in 90 secondi</li>
+          <li>Firma digitale certificata</li>
+          <li>Dashboard gare live</li>
+          <li>Gestione sinistri da mobile</li>
+        </ul>
+        <div class="sb-more">Scarica su App Store / Google Play →</div>
+      </div>
+      <div class="sb sb--light" style="border:1.5px solid var(--border)">
+        <div class="sb-tag">Convenzioni & Partnership</div>
+        <div class="sb-title">Convenzioni Esclusive</div>
+        <div class="sb-body">Accordi preferenziali attivi per gli agenti Gruppo Assicurativo Italia con partner selezionati: tecnologia, automotive, sanità, immobiliare e associazioni di categoria.</div>
+        <ul class="sb-list">
+          <li>Concessionari auto convenzionati (lead qualificati)</li>
+          <li>Associazioni artigiani & CNA (accesso PMI)</li>
+          <li>Studi di consulenza fiscale (cross-sell vita)</li>
+          <li>Agenzie immobiliari (polizze casa)</li>
+          <li>Cliniche private (polizze salute)</li>
+        </ul>
+        <div class="sb-more" style="color:var(--blue)">Vedi tutte le convenzioni →</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--txt-3);text-align:center;margin-top:16px">Per accesso e credenziali alle piattaforme: <strong>supporto.rete@gruppoassicurativoitalia.it</strong> · 02 72161 (lun-ven 8:30–18:00)</p>
+  </div>
+</section>
+
+<!-- CHATBOT -->
+<section class="chat-sec" id="chatbot">
+  <div class="chat-layout">
+    <div class="chat-lhs">
+      <div class="eyebrow rev">Assistente AI</div>
+      <h2 class="h2 rev">Cosa vuoi sapere?</h2>
+      <p class="body-txt rev" style="margin-bottom:28px">Fai qualsiasi domanda sul Distribution Book Gruppo Assicurativo Italia 2026. Rispondo su strategia, gare, agenda e strumenti.</p>
+      <div class="chips rev">
+        <button class="chip" data-q="Quali sono i KPI di crescita 2026?">KPI Strategici</button>
+        <button class="chip" data-q="Come funziona la gara Top Agent?">Top Agent 2026</button>
+        <button class="chip" data-q="Quali sono le campagne attive?">Campagne</button>
+        <button class="chip" data-q="Quali sono i bonus trimestrali?">Bonus</button>
+        <button class="chip" data-q="Quando è la convention di gennaio?">Convention</button>
+        <button class="chip" data-q="Quali strumenti ha a disposizione l'agente?">Strumenti</button>
+      </div>
+    </div>
+    <div class="chat-rhs rev-up">
+      <div class="chat-win">
+        <div class="chat-win-bar">
+          <span class="cwb-dot cwb-r"></span><span class="cwb-dot cwb-y"></span><span class="cwb-dot cwb-g"></span>
+          <span class="cwb-title">Distribution Book — Gruppo Assicurativo Italia</span>
+        </div>
+        <div class="chat-msgs" id="chatBody">
+          <div class="cmsg cmsg--ai"><div class="cmsg-bubble">Ciao! Sono l'assistente del Distribution Book Gruppo Assicurativo Italia 2026. Posso rispondere su strategia commerciale, gare, incentivi, agenda eventi e strumenti di supporto. Come posso aiutarti?</div></div>
+        </div>
+        <div class="chat-bar">
+          <input id="chatIn" class="chat-inp" type="text" placeholder="Scrivi una domanda…" />
+          <button id="chatSendBtn" class="chat-go">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M13 7.5H2M13 7.5L7.5 2M13 7.5L7.5 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div>
+      <div class="footer-logo">
+        <svg width="24" height="16" viewBox="0 0 28 18" fill="none"><rect width="28" height="18" rx="3" fill="#003781"/><path d="M4 14V7l4-3 4 3v7" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14v-3h3v3" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Gruppo Assicurativo Italia Italia S.p.A.
+      </div>
+    </div>
+    <div class="footer-meta">
+      <p>Distribution Book © 2026 · Versione 1.0 · Gennaio 2026</p>
+      <p>Uso interno riservato — Rete Agenziale</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="footer-legal">Documento riservato alla rete commerciale di Gruppo Assicurativo Italia Italia S.p.A. Tutti i dati di prodotto, premi e massimali indicati hanno esclusivo scopo dimostrativo. Prima della vendita consultare sempre il set informativo ufficiale disponibile su gruppoassicurativoitalia.it.</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-x" id="modalX">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div id="mContent"></div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════
+   Distribution Book 2026 — JS
+═══════════════════════════ */
+
+/* Nav */
+const nav = document.getElementById('nav');
+const burger = document.getElementById('burger');
+const mobMenu = document.getElementById('mobMenu');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10));
+burger?.addEventListener('click', () => mobMenu.classList.toggle('open'));
+mobMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobMenu.classList.remove('open')));
+
+/* Reveal on scroll */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+}, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+document.querySelectorAll('.rev, .rev-up').forEach(el => io.observe(el));
+
+/* KPI counters */
+function counter(el) {
+  const t = parseFloat(el.dataset.target);
+  const pre = el.dataset.prefix || '';
+  const suf = el.dataset.suffix || '';
+  const dec = t % 1 !== 0;
+  const dur = 1800, t0 = performance.now();
+  const tick = now => {
+    const p = Math.min((now - t0) / dur, 1);
+    const e = 1 - Math.pow(1 - p, 3);
+    el.textContent = pre + (dec ? (t * e).toFixed(1) : Math.round(t * e)) + suf;
+    if (p < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+const kio = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { counter(e.target); kio.unobserve(e.target); }});
+}, { threshold: 0.5 });
+document.querySelectorAll('.kpi-num[data-target]').forEach(el => kio.observe(el));
+
+/* Smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 60, behavior: 'smooth' });
+  });
+});
+
+/* ═══ CHATBOT ═══ */
+const chatBody = document.getElementById('chatBody');
+const chatIn   = document.getElementById('chatIn');
+const chatBtn  = document.getElementById('chatSendBtn');
+
+const KB = {
+  kpi: { kw:['kpi','crescita','obiettivo','target','raccolt','18%','91%'],
+    r:{ title:'KPI Strategici 2026', rows:[
+      ['New Business Growth','+18% vs consuntivo 2025'],
+      ['Retention Portfolio Target','91% (media 2025: 87%)'],
+      ['NPS Cliente Target','4,4 / 5,0'],
+      ['Raccolta Totale Rete','€ 2,3 Mld obiettivo'],
+      ['Digital Direct Growth','+28% YoY'],
+    ], src:'Sezione 01 — Strategia Commerciale' }},
+  topagent: { kw:['top agent','gara agent','gara principal','classifica','punti gara'],
+    r:{ title:'Top Agent 2026', rows:[
+      ['Tipo','Trimestrale + Annuale'],
+      ['1° Classificato','€4.000 + Viaggio Gruppo Assicurativo Italia Premium'],
+      ['2° Classificato','€2.500 + Voucher €400'],
+      ['3° Classificato','€1.500 + Tech Pack'],
+      ['Top 15 nazionale','+2% extra su tutte le commissioni'],
+      ['Top 50 nazionale','+1% extra su tutte le commissioni'],
+      ['Punti max per azione','22 pt — Pacchetto PMI completo'],
+    ], src:'Sezione 02 — Gare & Incentivi' }},
+  bonus: { kw:['bonus','fascia','incentiv','trimestral','remuner'],
+    r:{ title:'Bonus Trimestrali Agenti', rows:[
+      ['Fascia A (>120%)','€3.000 + 2,5% extra commissioni'],
+      ['Fascia B (100-120%)','€1.800 + 1,5% extra'],
+      ['Fascia C (80-99%)','€700'],
+      ['Fascia D (<80%)','Nessun bonus — piano supporto'],
+      ['Retention >93%','€2.200 bonus qualità annuale'],
+      ['NPS ≥4,5','€600 bonus soddisfazione annuale'],
+    ], src:'Sezione 02 — Gare & Incentivi' }},
+  convention: { kw:['convention','kick-off','gennaio','evento','gala','agenda','calendario'],
+    r:{ title:'Principali Appuntamenti 2026', rows:[
+      ['15 Gen — Milano','Kick-Off Convention Nazionale'],
+      ['Feb — Nord Italia','Roadshow Motor (6 città)'],
+      ['Giu — Rimini','Mid-Year Summit & Premiazioni'],
+      ['Set — Sud & Isole','Roadshow Sud Italia'],
+      ['10 Dic — Milano','Gala Top Performer 2026'],
+    ], src:'Sezione 03 — Agenda 2026' }},
+  strumenti: { kw:['strumento','academy','app','marketing hub','brand','convenzione','formazione'],
+    r:{ title:'Strumenti di Supporto 2026', rows:[
+      ['Accademia Commerciale','200+ corsi, certificazioni IVASS — academy.gruppoassicurativoitalia.it'],
+      ['Marketing Hub','Materiali, template, social — hub.gruppoassicurativoitalia.it'],
+      ['Agent App','Preventivi mobile, firma digitale, gare live'],
+      ['Brand Toolkit','Logo, template, segnaletica — brand.gruppoassicurativoitalia.it'],
+      ['Convenzioni','Concessionari, CNA, studi fiscali, agenzie immobiliari'],
+    ], src:'Sezione 04 — Strumenti' }},
+  risingstar: { kw:['rising star','collaborator','junior','nuovo agente'],
+    r:{ title:'Rising Star Gruppo Assicurativo Italia 2026', rows:[
+      ['Target','Produttori con < 3 anni di mandato'],
+      ['Obiettivo min.','20 polizze/trimestre'],
+      ['Premio Top 3 nazionali','Promozione Sub-Agente + €3.500'],
+      ['Gara','Trimestrale con classifica dedicata'],
+    ], src:'Sezione 02 — Gare & Incentivi' }},
+  cyber: { kw:['cyber','cyber safe','cyber champion','digitale'],
+    r:{ title:'Cyber Safe & Incentivi', rows:[
+      ['Prodotto','Cyber Safe — PMI e professionisti'],
+      ['Extra commissione','+3,0% — massima priorità 2026'],
+      ['Gara Cyber Champion','5+ polizze nel semestre → club Cyber Elite'],
+      ['Target','PMI con operatività digitale, e-commerce, studi'],
+      ['Punti gara','14 pt per polizza Cyber venduta'],
+    ], src:'Sezione 02 — Gare & Incentivi' }},
+  campagne: { kw:['campagna','campagne','attiv','motor protection','casa sicura','pmi proteg','lithium','ev special','protezione famiglia autunno','vita previdenza'],
+    r:{ title:'Campagne Commerciali 2026', rows:[
+      ['Motor Protection Bundle','Gen–Mar | Obiettivo 8.500 polizze | Bonus €250'],
+      ['Casa Sicura Gruppo Assicurativo Italia','Feb–Mag | Obiettivo 5.200 polizze | Bonus €180'],
+      ['PMI Proteggi il Futuro','Mar–Giu | Obiettivo 1.800 clienti | +3% extra'],
+      ['Vita & Previdenza','Apr–Set | Raccolta €320M | Trofeo Top Life Advisor'],
+      ['EV Special','Mag–Ago | Obiettivo 3.400 polizze | Bonus €200'],
+      ['Protezione Famiglia Autunno','Set–Dic | Obiettivo 6.000 polizze | Bonus €150'],
+    ], src:'Sezione 03 — Campagne Commerciali' }},
+  gare8: { kw:['quante gare','elenco gare','tutte le gare','8 gare','motor master','retention king','pmi challenger'],
+    r:{ title:'8 Gare sul Territorio 2026', rows:[
+      ['Top Agent 2026','Principale — trimestrale — tutti gli agenti'],
+      ['Rising Star','Per agenti < 3 anni — promo Sub-Agente'],
+      ['Casa Sprint Q1&Q3','Tema casa — voucher €500'],
+      ['Cyber Champion','PMI Cyber — accesso Cyber Elite'],
+      ['Motor Master','Bundle Motor+Protezione — €1.200'],
+      ['Excellence Leadership','Area Manager — Summit Monaco'],
+      ['PMI Challenger','Pacchetti PMI completi — €2.000'],
+      ['Retention King','Portafoglio rinnovi — €1.800 + Targa Gold'],
+    ], src:'Sezione 03 — Campagne Commerciali' }},
+  iniziative: { kw:['iniziativ','referral','social kit','scuola guida','fiera','pmi tour','lead generation'],
+    r:{ title:'6 Iniziative Speciali 2026', rows:[
+      ['Lead Gen EV','38 concessionari EV → lead automatici per zona'],
+      ['Social Local Kit','24 post pronti + video-stories mensili'],
+      ['Assicurazione nelle Scuole Guida','120 scuole conv. — sconto 15% neopatentati'],
+      ['Fiere Immobiliari','14 eventi — stand Gruppo Assicurativo Italia brandizzato'],
+      ['PMI Tour','30 incontri CNA/Confartigianato/Confcommercio'],
+      ['Programma Referral','€50 cliente + €100 agente per ogni referral'],
+    ], src:'Sezione 03 — Campagne Commerciali' }},
+};
+
+function findKB(q) {
+  const lq = q.toLowerCase();
+  for (const k in KB) if (KB[k].kw.some(w => lq.includes(w))) return KB[k].r;
+  return null;
+}
+function buildBubble(r) {
+  const rows = r.rows.map(([l,v]) => `<div class="det-row"><span class="det-lbl">${l}</span><span class="det-val">${v}</span></div>`).join('');
+  return `<strong>${r.title}</strong>${rows}<span class="src-tag">📌 ${r.src}</span>`;
+}
+function addMsg(html, role='ai') {
+  const d = document.createElement('div');
+  d.className = `cmsg cmsg--${role}`;
+  d.innerHTML = `<div class="cmsg-bubble">${html}</div>`;
+  chatBody.appendChild(d);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+function addTyping() {
+  const d = document.createElement('div');
+  d.className = 'cmsg cmsg--ai'; d.id = 'typing';
+  d.innerHTML = `<div class="cmsg-bubble typing"><span></span><span></span><span></span></div>`;
+  chatBody.appendChild(d); chatBody.scrollTop = chatBody.scrollHeight;
+}
+async function ask(q) {
+  if (!q.trim()) return;
+  addMsg(q,'user'); chatIn.value = '';
+  addTyping();
+  await new Promise(r => setTimeout(r, 700 + Math.random()*500));
+  document.getElementById('typing')?.remove();
+  const ans = findKB(q);
+  addMsg(ans ? buildBubble(ans) : `Non ho trovato informazioni specifiche.<br/>Prova con: <strong>KPI, Top Agent, Bonus, Convention, Strumenti, Rising Star, Cyber</strong>`);
+}
+chatBtn?.addEventListener('click', () => ask(chatIn.value));
+chatIn?.addEventListener('keydown', e => { if(e.key==='Enter') ask(chatIn.value); });
+document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => ask(c.dataset.q)));
+
+/* Modal */
+const modalOv = document.getElementById('modalOv');
+const modalX  = document.getElementById('modalX');
+const mContent = document.getElementById('mContent');
+modalX?.addEventListener('click', () => { modalOv.classList.remove('open'); document.body.style.overflow=''; });
+modalOv?.addEventListener('click', e => { if(e.target===modalOv){ modalOv.classList.remove('open'); document.body.style.overflow=''; }});
+document.addEventListener('keydown', e => { if(e.key==='Escape'){ modalOv.classList.remove('open'); document.body.style.overflow=''; }});
+</script>
 </body>
 </html>
